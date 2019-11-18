@@ -61,6 +61,7 @@ public class main {
 		System.out.println("-----------------------");
 		
 		grafo1.prim();
+		grafo1.prim2();
 		
 	}
 }

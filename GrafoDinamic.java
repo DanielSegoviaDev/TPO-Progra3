@@ -206,7 +206,12 @@ public class GrafoDinamic implements GrafosTDA {
 		
 	}
 	
+	public int[][] prim2() {
+		return null;
+	}
+	@Override
 	public void prim() {
+		// TODO Auto-generated method stub
 		
 	}
 

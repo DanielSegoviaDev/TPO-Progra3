@@ -35,6 +35,7 @@ public interface GrafosTDA {
 	
 	public void prim();
 	
+	public int[][] prim2();
 
 	
 }
