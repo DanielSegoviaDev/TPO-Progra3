@@ -218,47 +218,76 @@ public class ImplemEstatica implements GrafosTDA {
 	
 		public void prim() {
 			
-			@SuppressWarnings("unused")
-			int longMin, menor, z;
-			int[] coste = new int[indice];
-			int[] masCerca= new int[indice];
-			boolean[] visitado = new boolean[indice];
+		int[][] matrix = matrizAdy;
+		int[] visited = new int[indice];
+		int[] costo = new int[indice];
+		int[] cerca = new int[indice];
+		int min = Integer.MAX_VALUE;
+		int u = 0, v = 0;
+		int total = 0;
+		
+		for(int i=0; i <indice; i++) {
+			costo[i]=matrizAdy[0][i];
+			cerca[i] =0;
+		}
+		
+		
+		for(int i = 0; i < indice; i++){
 			
-			longMin=0;
+			visited[i] = 0;
 			
-			for(int i=0;i<indice;i++){
-				visitado[i]=false;
-				longMin =0;
-				visitado[0] = true;
-			}
-			
-			for(int i = 1; i < indice;i++){
-				coste[i]= matrizAdy[0][i];
-				masCerca[i]=0;
-			}
-			for(int i=1; i<indice;i++){
-				menor = coste[1];
-				z=1;
-				for(int j=2;j<indice;j++){
-					if (coste[j]<menor){
-						menor = coste[j];
-						z=j;
-					}
-				}
-				longMin += menor;
-				System.out.println("Pasada: Vertice: "+etiquetas[masCerca[z]]+
-						"->"+etiquetas[z]+" Peso:"+coste[z]);
-				visitado[z]=true;
-				coste[z]=999;
-				for(int j=1;j<indice;j++){
-					if((matrizAdy[z][j]<coste[j])&&!visitado[j]){
-						coste[j]=matrizAdy[z][j];
-						masCerca[j]=z;
-					}
+			for(int j = 0; j < indice; j++){
+				
+				matrix[i][j] = matrizAdy[i][j];
+				if(matrix[i][j]==0){
+					
+					matrix[i][j] = Integer.MAX_VALUE;
+					
 				}
 				
 			}
-
+			
+		}
+		
+		visited[0] = 1;
+		
+		for(int counter = 0; counter <= indice ; counter++){
+			
+			min = Integer.MAX_VALUE;
+			
+			for(int i = 0; i < indice; i++){
+			
+			if(visited[i]==1){
+			
+				for(int j = 0; j < indice; j++){
+				
+					if(visited[j]!=1){
+						
+						if(min > matrix[i][j]){
+							
+							min = matrix[i][j];
+							u = i;
+							v = j;
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+			}
+	
+			visited[v] = 1;
+			total += min;
+			System.out.println("Edge connected: "+u+" -> "+v+" : "+min);
+			
+			
+		
+		}
+		System.out.println("El costo minimo total del Grafo es: "+ total);
+		
 	}
 		
 		public int[][] prim2() {
