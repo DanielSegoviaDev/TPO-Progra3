@@ -1,6 +1,5 @@
 package claseGrafo;
 
-import java.util.PriorityQueue;
 import java.util.Vector;
 
 
@@ -173,9 +172,35 @@ public class GrafoDinamic implements GrafosTDA {
 
 
 	@Override
-	public void dephtFirstSearch() {
+	public void dephtFirstSearch(int origen) {
+		NodoGrafo aux = encontrarNodo(origen);
+		Vector<NodoGrafo> vectorAdy = encontrarAdyacencias(aux);
+		
+		aux.Visitado = true;
+		
+		if(vectorAdy!=null) {
+			for(int i = vectorAdy.size() - 1; i >= 0; i--) {
+				if(!vectorAdy.elementAt(i).Visitado)
+					dephtFirstSearch(vectorAdy.elementAt(i).valor);
+			}
+		}
+		System.out.print(origen + " ");
+
+	}
+	
+	private Vector<NodoGrafo> encontrarAdyacencias(NodoGrafo origen) {
+		Vector<NodoGrafo> adyacentes = new Vector<NodoGrafo>();
+		NodoArista aux = origen.lista;
+		
+		while(aux != null) {
+			adyacentes.add(aux.apunta);
+			aux = aux.sig;
+		}
+		
+		return adyacentes;
 		
 	}
+
 
 	
 	

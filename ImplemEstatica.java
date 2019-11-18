@@ -1,6 +1,5 @@
 package claseGrafo;
 
-import java.util.PriorityQueue;
 
 public class ImplemEstatica implements GrafosTDA {
 	
@@ -168,7 +167,7 @@ public class ImplemEstatica implements GrafosTDA {
 	}
 
 	@Override
-	public void dephtFirstSearch() {
+	public void dephtFirstSearch(int origen) {
 		
 	
 	}

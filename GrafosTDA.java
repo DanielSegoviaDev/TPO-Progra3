@@ -29,7 +29,7 @@ public interface GrafosTDA {
 	
 	public void imparAristas();
 	
-	public void dephtFirstSearch();
+	public void dephtFirstSearch(int origen);
 	
 
 	
