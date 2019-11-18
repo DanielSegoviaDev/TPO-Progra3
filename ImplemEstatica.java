@@ -210,7 +210,89 @@ public class ImplemEstatica implements GrafosTDA {
 		System.out.print(padre[i]);
 	}
 
+	
+		// etapa 1 de prim: Elvi Daniel! 
+	
+		public void prim() {
+			
+		int[][] matrix = matrizAdy;
+		int[] visited = new int[indice];
+		int[] costo = new int[indice];
+		int[] cerca = new int[indice];
+		int min = Integer.MAX_VALUE;
+		int u = 0, v = 0;
+		int total = 0;
+		
+		for(int i=0; i <indice; i++) {
+			costo[i]=matrizAdy[0][i];
+			cerca[i] =0;
+		}
+		
+		
+		for(int i = 0; i < indice; i++){
+			
+			visited[i] = 0;
+			
+			for(int j = 0; j < indice; j++){
+				
+				matrix[i][j] = matrizAdy[i][j];
+				if(matrix[i][j]==0){
+					
+					matrix[i][j] = Integer.MAX_VALUE;
+					
+				}
+				
+			}
+			
+		}
+		
+		visited[0] = 1;
+		
+		for(int counter = 0; counter <= indice ; counter++){
+			
+			min = Integer.MAX_VALUE;
+			
+			for(int i = 0; i < indice; i++){
+			
+			if(visited[i]==1){
+			
+				for(int j = 0; j < indice; j++){
+				
+					if(visited[j]!=1){
+						
+						if(min > matrix[i][j]){
+							
+							min = matrix[i][j];
+							u = i;
+							v = j;
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+			}
+	
+			visited[v] = 1;
+			total += min;
+			System.out.println("Edge connected: "+u+" -> "+v+" : "+min);
+			
+			
+		
+		}
+		System.out.println("El costo minimo total del Grafo es: "+ total);
+		
+	}
+		
+		
+}
+	
+	
+
 
 
 	
-}
+

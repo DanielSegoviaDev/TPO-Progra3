@@ -58,7 +58,9 @@ public class main {
 			
 		
 		grafo1.dijkistra(1);
-
+		System.out.println("-----------------------");
+		
+		grafo1.prim();
 		
 	}
 }

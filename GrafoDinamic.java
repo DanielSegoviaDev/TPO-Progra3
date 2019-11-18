@@ -205,6 +205,10 @@ public class GrafoDinamic implements GrafosTDA {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void prim() {
+		
+	}
 
 
 	

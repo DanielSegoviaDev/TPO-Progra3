@@ -33,6 +33,8 @@ public interface GrafosTDA {
 
 	public void dijkistra(int origen);
 	
+	public void prim();
+	
 
 	
 }
