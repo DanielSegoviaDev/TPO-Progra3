@@ -1,5 +1,6 @@
 package claseGrafo;
 
+import java.util.PriorityQueue;
 
 public class ImplemEstatica implements GrafosTDA {
 	
@@ -68,9 +69,7 @@ public class ImplemEstatica implements GrafosTDA {
 		int[] aux = new int[indice];
 		for(int i = 0; i < indice; i++) {
 			aux[i] = etiquetas[i];
-			System.out.print(aux[i] + "\t");
 		}
-		System.out.println();
 		return aux;
 	}
 	
@@ -171,6 +170,46 @@ public class ImplemEstatica implements GrafosTDA {
 		
 	
 	}
+	
+	@Override
+	public void dijkistra(int origen) {
+		int[] vertices = vertices();
+		int[] distancia = new int[vertices.length];
+	    int[] padre = new int[vertices.length];
+	    boolean[] visto = new boolean[vertices.length];
+	   
+	    for (int i = 1; i < vertices.length; i++) {
+	    	distancia[i] = Integer.MAX_VALUE;
+	        padre[i] = -1;
+	        visto[i] = false;
+	     	}
+	     distancia[origen]=0;
+	     PriorityQueue<Integer> pila = new PriorityQueue<>();
+	     pila.add(distancia[origen]);
+		     while (!pila.isEmpty()) {
+		        int u = pila.poll();
+		        visto[u] = true;
+	
+		        for (int i = 0; i < vertices.length; i++) { 
+		        	if ( (Integer)matrizAdy[u][i] != 0) {
+		        		if ((Integer)distancia[i] > distancia[u] + (Integer)matrizAdy[u][i]) {  
+		        			distancia[i] = distancia[u] + (Integer)matrizAdy[u][i];
+		        			padre[i] = u;
+		        			pila.add(i);
+	             	}
+	         	}
+	     	} 
+	     }
+		     imprimirPadre(padre);
+	
+	}
+
+	
+	private void imprimirPadre(int [] padre) {
+		for(int i = 0; i< padre.length; i++) 
+		System.out.print(padre[i]);
+	}
+
 
 
 	

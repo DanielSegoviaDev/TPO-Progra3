@@ -5,6 +5,7 @@ public class main {
 	public static void main(String[] args) {
 		
 		GrafosTDA grafos = new GrafoDinamic();
+		GrafosTDA grafo1 = new ImplemEstatica();
 	
 		
 		grafos.inicializarGrafo(9);
@@ -35,6 +36,29 @@ public class main {
 		System.out.println();
 		System.out.println("-------------------");
 		
-	
+		grafo1.inicializarGrafo(6);
+		grafo1.agregarVertice(1);
+		grafo1.agregarVertice(6);
+		grafo1.agregarVertice(5);
+		grafo1.agregarVertice(4);
+		grafo1.agregarVertice(3);
+		grafo1.agregarVertice(2);
+		
+		
+		
+		grafo1.agregarArista(1, 6, 5);
+		grafo1.agregarArista(1, 5, 10);
+		grafo1.agregarArista(1, 3, 40);
+		grafo1.agregarArista(6, 2, 20);
+		grafo1.agregarArista(6, 5, 10);
+		grafo1.agregarArista(5, 4, 20);
+		grafo1.agregarArista(4, 3, 5);
+		grafo1.agregarArista(3, 5, 5);
+		grafo1.agregarArista(3, 2, 10);
+			
+		
+		grafo1.dijkistra(1);
+
+		
 	}
 }

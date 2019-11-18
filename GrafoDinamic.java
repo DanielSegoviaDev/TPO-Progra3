@@ -200,6 +200,11 @@ public class GrafoDinamic implements GrafosTDA {
 		return adyacentes;
 		
 	}
+	@Override
+	public void dijkistra(int origen) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 	

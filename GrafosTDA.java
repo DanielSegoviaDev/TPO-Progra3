@@ -30,6 +30,8 @@ public interface GrafosTDA {
 	public void imparAristas();
 	
 	public void dephtFirstSearch(int origen);
+
+	public void dijkistra(int origen);
 	
 
 	
